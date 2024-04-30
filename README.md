@@ -1,2 +1,2 @@
 # ProjetoPOO_BD
-Projeto de integração de banco de dados em SQL e Java
+Projeto de um sistema próprio de RPG com integração de banco de dados em SQL e Java
