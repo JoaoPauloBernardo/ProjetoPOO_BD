@@ -44,8 +44,7 @@ public class PersonagemDAO extends ConnectionDAO{
             connectToDB();
             String sql = "UPDATE Personagens SET nome=? where nivel=?";
             try {
-                pst = con.prepareStatement(sql);
-                pst.setString(1, nome);
+                pst = con.prepareStatement(sql);              pst.setString(1, nome);
                 pst.setInt(2, nivel);
                 pst.execute();
                 sucesso = true;
