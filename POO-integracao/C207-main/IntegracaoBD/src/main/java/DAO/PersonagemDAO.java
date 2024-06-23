@@ -62,6 +62,50 @@ public class PersonagemDAO extends ConnectionDAO{
             return sucesso;
         }
 
+    public boolean updatePersonagemVida(String nome, int vida) {
+        connectToDB();
+        String sql = "UPDATE Personagens SET vida=? where nome=?";
+        try {
+            pst = con.prepareStatement(sql);              pst.setInt(1, vida);
+            pst.setString(2, nome);
+            pst.execute();
+            sucesso = true;
+        } catch (SQLException ex) {
+            System.out.println("Erro = " + ex.getMessage());
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                pst.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro: " + exc.getMessage());
+            }
+        }
+        return sucesso;
+    }
+
+    public boolean updatePersonagemNivel(String nome, int nivel) {
+        connectToDB();
+        String sql = "UPDATE Personagens SET nivel=? where nome=?";
+        try {
+            pst = con.prepareStatement(sql);              pst.setInt(1, nivel);
+            pst.setString(2, nome);
+            pst.execute();
+            sucesso = true;
+        } catch (SQLException ex) {
+            System.out.println("Erro = " + ex.getMessage());
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                pst.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro: " + exc.getMessage());
+            }
+        }
+        return sucesso;
+    }
+
         //DELETE
         public boolean deletePersonagem(int nivel) {
             connectToDB();
